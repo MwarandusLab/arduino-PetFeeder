@@ -2,7 +2,7 @@
 #include <time.h>
 #include <RTClib.h>
 
-#define BLYNK_TEMPLATE_ID "TMPL2IVCyko9U"
+#define BLYNK_TEMPLATE_ID "TMPL2n3YyT-gY"
 #define BLYNK_TEMPLATE_NAME "Pet Feeder"
 
 RTC_DS3231 rtc;
@@ -66,6 +66,7 @@ void setup() {
   pinMode(WifiLed, OUTPUT);
 
   digitalWrite(PowerLed, HIGH);
+  Serial.println("PowerLed ON");
   digitalWrite(WifiLed, LOW);
 
   delay(100);
@@ -80,6 +81,7 @@ void loop() {
 
   if (WiFi.status() == WL_CONNECTED) {
     digitalWrite(WifiLed, HIGH); // Turn on WifiLed
+    Serial.println("WifiLed ON");
     syncRTC();
   } else {
     digitalWrite(WifiLed, LOW); // Turn off WifiLed
